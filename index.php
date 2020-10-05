@@ -98,9 +98,11 @@ if (empty($_POST["zipcode"])) {
 } else {
     $zipCode = ($_POST["zipcode"]);
 }
+//did an if statement for the is numeric
 if(!preg_match("/^[0-9*#+]+$/", $zipcode)){
     $zipCodeErr = "Only numeric values allowed";
 }
+
 
 
 $totalValue = 0;
