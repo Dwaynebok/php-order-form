@@ -35,9 +35,19 @@ $products2 =  [
     ['name' => 'Ice-tea', 'price' => 3],
 ];
 
+/*
 $email = ($_POST["email"]);
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $emailErr = "Invalid email format";
+} else {
+    echo "Email address '$email' is considered invalid.";
+}
+*/
+
+$email = ($_POST["email"]);
+if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Email address '$email' is considered valid.";
+
 } else {
     echo "Email address '$email' is considered invalid.";
 }
