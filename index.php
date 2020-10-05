@@ -82,9 +82,10 @@ if (empty($_POST["streetNumber"])) {
     $streetNumberErr = "Street.Nr is required";
 } else {
     $streetNumber = ($_POST["streetNumber"]);
-}
-if(!preg_match("/^[0-9*#+]+$/", $streetNumber)){
-    $streetNumber = "Only numeric values allowed";
+    if (!preg_match("/^[0-9*#+]+$/", $streetNumber)) {
+        $streetNumber = "Only numeric values allowed";
+    }
+
 }
 
 if (empty($_POST["city"])) {
@@ -97,13 +98,13 @@ if (empty($_POST["zipcode"])) {
     $zipCodeErr = "zipcode is required";
 } else {
     $zipCode = ($_POST["zipcode"]);
+    if (is_numeric($zipCode)) {
+        $zipcode = 'valid';
+    } else{
+        $zipcode = "is not valid";
 }
 
-if(!preg_match("/^[0-9*#+]+$/", $zipcode)){
-    $zipCodeErr = "Only numeric values allowed";
 }
-
-
 
 $totalValue = 0;
 
