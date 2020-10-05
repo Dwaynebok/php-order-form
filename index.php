@@ -69,6 +69,7 @@ if (empty($_POST["email"])) {
     $emailErr = "Email is required";
 } else {
     $email = ($_POST["email"]);
+
 }
 
 if (empty($_POST["street"])) {
@@ -93,6 +94,12 @@ if (empty($_POST["zipcode"])) {
     $zipCodeErr = "zipcode is required";
 } else {
     $zipcode = ($_POST["zipcode"]);
+}
+
+if (is_numeric(887)) {
+    echo "Yes";
+} else {
+    echo "No";
 }
 
 $totalValue = 0;
