@@ -78,7 +78,7 @@ if (empty($_POST["street"])) {
 }
 
 if (empty($_POST["streetNumber"])) {
-    $streetNumberErr = "StreetNR is required";
+    $streetNumberErr = "Street.Nr is required";
 } else {
     $streetNumber = ($_POST["streetNumber"]);
 }
