@@ -35,10 +35,7 @@ $products2 =  [
     ['name' => 'Ice-tea', 'price' => 3],
 ];
 
-$email = ($_POST["email"]);
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $emailErr = "Invalid email format";
-}
+
 
 $totalValue = 0;
 
