@@ -8,7 +8,23 @@ error_reporting(E_ALL);
 //we are going to use session variables so we need to enable sessions
 session_start();
 
-function whatIsHappening() {
+$emailErr = "";
+$streetErr = "";
+$zipCodeErr = "";
+$cityErr = "";
+$streetNumberErr = "";
+
+
+$zipCode = "";
+$city = "";
+$street = "";
+$streetNumber = "";
+$email = "";
+$success = "";
+
+
+function whatIsHappening()
+{
     echo '<h2>$_GET</h2>';
     var_dump($_GET);
     echo '<h2>$_POST</h2>';
@@ -20,7 +36,7 @@ function whatIsHappening() {
 }
 
 //your products with their price.
-$products =  [
+$products = [
     ['name' => 'Club Ham', 'price' => 3.20],
     ['name' => 'Club Cheese', 'price' => 3],
     ['name' => 'Club Cheese & Ham', 'price' => 4],
@@ -28,7 +44,7 @@ $products =  [
     ['name' => 'Club Salmon', 'price' => 5]
 ];
 
-$products2 =  [
+$products2 = [
     ['name' => 'Cola', 'price' => 2],
     ['name' => 'Fanta', 'price' => 2],
     ['name' => 'Sprite', 'price' => 2],
@@ -53,17 +69,6 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "Email address '$email' is considered invalid.";
 }
 
-$emailErr = "";
-$streetErr = "";
-$zipCodeErr = "";
-$cityErr = "";
-$streetNumberErr = "";
-
-$zipcode = "";
-$city = "";
-$street = "";
-$streetNumber = "";
-$email = "";
 
 if (empty($_POST["email"])) {
     $emailErr = "Email is required";
@@ -83,7 +88,7 @@ if (empty($_POST["streetNumber"])) {
 } else {
     $streetNumber = ($_POST["streetNumber"]);
     if (!preg_match("/^[0-9*#+]+$/", $streetNumber)) {
-        $streetNumber = "Only numeric values allowed";
+        $streetNumberErr = "Only numeric values allowed";
     }
 
 }
@@ -98,13 +103,15 @@ if (empty($_POST["zipcode"])) {
     $zipCodeErr = "zipcode is required";
 } else {
     $zipCode = ($_POST["zipcode"]);
-    if (is_numeric($zipCode)) {
-        $zipcode = 'valid';
-    } else{
-        $zipcode = "is not valid";
+    if(!preg_match("/^[0-9*#+]+$/", $zipCode)) {
+        $zipCodeErr = "Only numeric values allowed";
+    }
+    if ($zipCode == "" && $street == "" && $city == "" && $email == "" && $streetNumber = "") {
+        $success = '<div class="alert alert-success" role="alert">Thank you for your order</div>';
+    }
 }
 
-}
+
 
 $totalValue = 0;
 
