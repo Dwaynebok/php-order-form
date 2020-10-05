@@ -20,7 +20,7 @@ function whatIsHappening() {
 }
 
 //your products with their price.
-$product1 = 'food'; [
+$products =  [
     ['name' => 'Club Ham', 'price' => 3.20],
     ['name' => 'Club Cheese', 'price' => 3],
     ['name' => 'Club Cheese & Ham', 'price' => 4],
@@ -28,12 +28,17 @@ $product1 = 'food'; [
     ['name' => 'Club Salmon', 'price' => 5]
 ];
 
-$product2 = 'drinks'; [
+$products2 =  [
     ['name' => 'Cola', 'price' => 2],
     ['name' => 'Fanta', 'price' => 2],
     ['name' => 'Sprite', 'price' => 2],
     ['name' => 'Ice-tea', 'price' => 3],
 ];
+
+$email = ($_POST["email"]);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $emailErr = "Invalid email format";
+}
 
 $totalValue = 0;
 
