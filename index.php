@@ -83,10 +83,8 @@ if (empty($_POST["streetNumber"])) {
 } else {
     $streetNumber = ($_POST["streetNumber"]);
 }
-//did an if statement for the is numeric
-// check if space only contains numbers only
-if(!preg_match("/^[0-9*#+]+$/", $street)){
-    $zipCodeErr = "Only numeric values allowed";
+if(!preg_match("/^[0-9*#+]+$/", $streetNumber)){
+    $streetNumber = "Only numeric values allowed";
 }
 
 if (empty($_POST["city"])) {
@@ -100,8 +98,7 @@ if (empty($_POST["zipcode"])) {
 } else {
     $zipCode = ($_POST["zipcode"]);
 }
-//did an if statement for the is numeric
-// check if space only contains numbers only
+
 if(!preg_match("/^[0-9*#+]+$/", $zipcode)){
     $zipCodeErr = "Only numeric values allowed";
 }
