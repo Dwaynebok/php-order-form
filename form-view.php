@@ -28,13 +28,16 @@
             </li>
         </ul>
     </nav>
+
+    <?php echo $success; ?>
+
     <form method="post">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="email">E-mail:</label>
-                <input type="text" id="email" name="email" class="form-control"/>
+                <input type="text" id="email" name="email" class="form-control" value="<?php echo $email;?>"/>
             </div>
-            <span class="error">* <?php echo $emailErr;?></span>
+            <span class="error"> <?php echo $emailErr;?></span>
 
             <br><br>
             <div></div>
@@ -46,28 +49,28 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="street">Street:</label>
-                    <input type="text" name="street" id="street" class="form-control">
-                    <span class="error">* <?php echo $streetErr;?></span>
+                    <input type="text" name="street" id="street" class="form-control" value="<?php echo $street;?>">
+                    <span class="error"> <?php echo $streetErr;?></span>
                     <br><br>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="streetNumber">Street number:</label>
-                    <input type="text" id="streetNumber" name="streetNumber" class="form-control validate-length maximum-length-10 minimum-length-10 validate-digits">
-                    <span class="error">* <?php echo $streetNumberErr;?></span>
+                    <input type="text" id="streetNumber" name="streetNumber" class="form-control" value="<?php echo $streetNumber;?>">
+                    <span class="error"> <?php echo $streetNumberErr;?></span>
                     <br><br>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city">City:</label>
-                    <input type="text" id="city" name="city" class="form-control">
-                    <span class="error">* <?php echo $cityErr;?></span>
+                    <input type="text" id="city" name="city" class="form-control" value="<?php echo $city;?>">
+                    <span class="error"> <?php echo $cityErr;?></span>
                     <br><br>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="zipcode">Zipcode</label>
-                    <input type="text" id="zipcode" name="zipcode" class="form-control validate-length maximum-length-10 minimum-length-10 validate-digits">
-                    <span class="error">* <?php echo $zipCodeErr;?></span>
+                    <input type="text" id="zipcode" name="zipcode" class="form-control" value="<?php echo $zipCode;?>">
+                    <span class="error"> <?php echo $zipCodeErr;?></span>
                     <br><br>
                 </div>
             </div>
@@ -87,7 +90,7 @@
             Express delivery (+ 5 EUR) 
         </label>
             
-        <button type="submit" class="btn btn-primary">Order!</button>
+        <button type="submit" class="btn btn-primary" style="">Order!</button>
     </form>
 
     <footer>You already ordered <strong>&euro; <?php echo $totalValue ?></strong> in food and drinks.</footer>
