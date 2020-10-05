@@ -9,6 +9,12 @@
           rel="stylesheet"/>
     <title>Order food & drinks</title>
 </head>
+
+<style>
+    .error {color: #FF0000;}
+    .good {color: green;}
+</style>
+
 <body>
 <div class="container">
     <h1>Order food in restaurant "the Personal Ham Processors"</h1>
@@ -28,6 +34,9 @@
                 <label for="email">E-mail:</label>
                 <input type="text" id="email" name="email" class="form-control"/>
             </div>
+            <span class="error">* <?php echo $emailErr;?></span>
+
+            <br><br>
             <div></div>
         </div>
 
@@ -38,20 +47,28 @@
                 <div class="form-group col-md-6">
                     <label for="street">Street:</label>
                     <input type="text" name="street" id="street" class="form-control">
+                    <span class="error">* <?php echo $streetErr;?></span>
+                    <br><br>
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="streetnumber">Street number:</label>
-                    <input type="text" id="streetnumber" name="streetnumber" class="form-control">
+                    <label for="streetNumber">Street number:</label>
+                    <input type="text" id="streetNumber" name="streetNumber" class="form-control validate-length maximum-length-10 minimum-length-10 validate-digits">
+                    <span class="error">* <?php echo $streetNumberErr;?></span>
+                    <br><br>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city">City:</label>
                     <input type="text" id="city" name="city" class="form-control">
+                    <span class="error">* <?php echo $cityErr;?></span>
+                    <br><br>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="zipcode">Zipcode</label>
-                    <input type="text" id="zipcode" name="zipcode" class="form-control">
+                    <input type="text" id="zipcode" name="zipcode" class="form-control validate-length maximum-length-10 minimum-length-10 validate-digits">
+                    <span class="error">* <?php echo $zipCodeErr;?></span>
+                    <br><br>
                 </div>
             </div>
         </fieldset>
