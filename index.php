@@ -44,6 +44,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 */
 
+//created a validation for the email using the code below
 $email = ($_POST["email"]);
 if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "Email address '$email' is considered valid.";
@@ -52,6 +53,47 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "Email address '$email' is considered invalid.";
 }
 
+$emailErr = "";
+$streetErr = "";
+$zipCodeErr = "";
+$cityErr = "";
+$streetNumberErr = "";
+
+$zipcode = "";
+$city = "";
+$street = "";
+$streetNumber = "";
+$email = "";
+
+if (empty($_POST["email"])) {
+    $emailErr = "Email is required";
+} else {
+    $email = ($_POST["email"]);
+}
+
+if (empty($_POST["street"])) {
+    $streetErr = "Street is required";
+} else {
+    $street = ($_POST["street"]);
+}
+
+if (empty($_POST["streetNumber"])) {
+    $streetNumberErr = "StreetNR is required";
+} else {
+    $streetNumber = ($_POST["streetNumber"]);
+}
+
+if (empty($_POST["city"])) {
+    $cityErr = "City is required";
+} else {
+    $city = ($_POST["city"]);
+}
+
+if (empty($_POST["zipcode"])) {
+    $zipCodeErr = "zipcode is required";
+} else {
+    $zipcode = ($_POST["zipcode"]);
+}
 
 $totalValue = 0;
 
