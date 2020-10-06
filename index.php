@@ -107,7 +107,7 @@ if (empty($_POST["zipcode"])) {
         $zipCodeErr = "Only numeric values allowed";
     }
     if ($zipCodeErr == "" && $streetErr == "" && $cityErr == "" && $emailErr == "" && $streetNumberErr == "") {
-        $success = '<div class="alert alert-success" role="alert">Thank you for your order</div>';
+        $success = 'Thank you for your order';
     }
 }
 
