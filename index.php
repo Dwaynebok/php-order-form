@@ -8,6 +8,25 @@ error_reporting(E_ALL);
 //we are going to use session variables so we need to enable sessions
 session_start();
 
+if (!isset($_SESSION["email"])){
+    $_SESSION["email"] = "";
+}
+
+if (!isset($_SESSION["zipCode"])){
+    $_SESSION["zipCode"] = "";
+}
+
+if (!isset($_SESSION["city"])){
+    $_SESSION["city"] = "";
+}
+
+if (!isset($_SESSION["street"])){
+    $_SESSION["street"] = "";
+}
+
+if (!isset($_SESSION["streetNumber"])){
+    $_SESSION["streetNumber"] = "";
+}
 
 
 $emailErr = "";
@@ -16,19 +35,14 @@ $zipCodeErr = "";
 $cityErr = "";
 $streetNumberErr = "";
 
-
 $zipCode = "";
 $city = "";
 $street = "";
 $streetNumber = "";
 $email = "";
 $success = "";
-/*
-$_SESSION["streetNumber"] = "$streetNumber";
-$_SESSION["zipCode"] = "$zipCode";
-$_SESSION["street"] = "$street";
-$_SESSION["city"] = "$city";
-*/
+
+
 function whatIsHappening()
 {
     echo '<h2>$_GET</h2>';
@@ -99,13 +113,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!preg_match("/^[0-9*#+]+$/", $streetNumber)) {
             $streetNumberErr = "Only numeric values allowed";
         }
-
     }
 
     if (empty($_POST["city"])) {
         $cityErr = "City is required";
-    } else {
+    } elseif ($_POST["city"]) {
         $city = ($_POST["city"]);
+        if (!preg_match("/^[a-zA-Z-' ]*$/", $city)) {
+            $cityErr = "Only letters and white space allowed";
+        } else{
+            $_SESSION["city"] = "$city";
+        }
     }
 
     if (empty($_POST["zipcode"])) {
@@ -121,6 +139,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 }
+
+$_SESSION["streetNumber"] = "$streetNumber";
+$_SESSION["zipCode"] = "$zipCode";
+$_SESSION["street"] = "$street";
+$_SESSION["city"] = "$city";
+
 
 $totalValue = 0;
 
