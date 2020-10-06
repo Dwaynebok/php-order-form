@@ -58,7 +58,7 @@ function whatIsHappening()
 }
 
 //your products with their price.
-$products = [
+$sandwich = [
     ['name' => 'Club Ham', 'price' => 3.20],
     ['name' => 'Club Cheese', 'price' => 3],
     ['name' => 'Club Cheese & Ham', 'price' => 4],
@@ -66,12 +66,29 @@ $products = [
     ['name' => 'Club Salmon', 'price' => 5]
 ];
 
-$products2 = [
+
+$drinks = [
     ['name' => 'Cola', 'price' => 2],
     ['name' => 'Fanta', 'price' => 2],
     ['name' => 'Sprite', 'price' => 2],
     ['name' => 'Ice-tea', 'price' => 3],
 ];
+
+$products = $drinks;
+
+$food = $_GET['food'];
+
+if(!isset($_GET['food'])){
+    $products = $sandwich;
+}
+else if ($food == 1){
+    $products = $sandwich;
+} else {
+    $products = $drinks;
+}
+
+
+var_dump($products);
 
 /*
 $email = ($_POST["email"]);
