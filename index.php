@@ -76,15 +76,15 @@ $drinks = [
 
 $products = $drinks;
 
-$food = $_GET['food'];
+$food = $_GET['food']; // set variable for food and used the get to fetch for the food data
 
 if(!isset($_GET['food'])){
-    $products = $sandwich;
+    $products = $sandwich; // used the isset if the value has not been set
 }
 else if ($food == 1){
-    $products = $sandwich;
+    $products = $sandwich; //else if for if the food is equals to one
 } else {
-    $products = $drinks;
+    $products = $drinks;  // else change to drinks
 }
 
 
