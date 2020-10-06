@@ -159,10 +159,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["zipCode"] = $zipCode;
         }
         if ($zipCodeErr == "" && $streetErr == "" && $cityErr == "" && $emailErr == "" && $streetNumberErr == "") {
-            $success = '<div class="alert alert-primary" role="alert">Thank you for your Order</div>'; //created a variable here and called the variable with the script tag in html
+            $success = '<div class="alert alert-primary" role="alert">Thank you for your Order </div>'; //created a variable here and called the variable with the script tag in html
         }
     }
-
 }
 
 $_SESSION["streetNumber"] = "$streetNumber";
@@ -170,6 +169,11 @@ $_SESSION["zipCode"] = "$zipCode";
 $_SESSION["street"] = "$street";
 $_SESSION["city"] = "$city";
 
+if (isset($_POST['express_delivery'])){
+    $time = 'your food will arrive in 45minutes';
+} else{
+    $time = ' your food will arrive in 2hours';
+}
 
 $totalValue = 0;
 whatIsHappening();
