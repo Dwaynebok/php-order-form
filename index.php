@@ -8,25 +8,33 @@ error_reporting(E_ALL);
 //we are going to use session variables so we need to enable sessions
 session_start();
 
-if (!isset($_SESSION["email"])){
-    $_SESSION["email"] = "";
+$zipCode = "";
+$city = "";
+$street = "";
+$streetNumber = "";
+$email = "";
+
+
+if (isset($_SESSION["zipCode"])){
+   $zipCode =  $_SESSION["zipCode"];
 }
 
-if (!isset($_SESSION["zipCode"])){
-    $_SESSION["zipCode"] = "";
+if (isset($_SESSION["city"])){
+   $city =  $_SESSION["city"];
 }
 
-if (!isset($_SESSION["city"])){
-    $_SESSION["city"] = "";
+if (isset($_SESSION["street"])){
+    $street =  $_SESSION["street"];
 }
 
-if (!isset($_SESSION["street"])){
-    $_SESSION["street"] = "";
+if (isset($_SESSION["streetNumber"])){
+   $streetNumber =  $_SESSION["streetNumber"];
 }
 
-if (!isset($_SESSION["streetNumber"])){
-    $_SESSION["streetNumber"] = "";
-}
+var_dump($_SESSION["city"]);
+var_dump($_SESSION["streetNumber"]);
+var_dump(($_SESSION["street"]));
+var_dump($_SESSION["zipCode"]);
 
 
 $emailErr = "";
@@ -34,12 +42,6 @@ $streetErr = "";
 $zipCodeErr = "";
 $cityErr = "";
 $streetNumberErr = "";
-
-$zipCode = "";
-$city = "";
-$street = "";
-$streetNumber = "";
-$email = "";
 $success = "";
 
 
@@ -102,16 +104,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($_POST["street"])) {
         $streetErr = "Street is required";
-    } else {
+    } elseif($_POST["street"]) {
         $street = ($_POST["street"]);
+    } else{
+        $_SESSION["street"] = $street;
     }
 
     if (empty($_POST["streetNumber"])) {
         $streetNumberErr = "Street.Nr is required";
-    } else {
+    } elseif ($_POST["streetNumber"]){
         $streetNumber = ($_POST["streetNumber"]);
         if (!preg_match("/^[0-9*#+]+$/", $streetNumber)) {
             $streetNumberErr = "Only numeric values allowed";
+        } else{
+                $_SESSION["streetNumber"] = $streetNumber;
         }
     }
 
@@ -122,16 +128,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!preg_match("/^[a-zA-Z-' ]*$/", $city)) {
             $cityErr = "Only letters and white space allowed";
         } else{
-            $_SESSION["city"] = "$city";
+            $_SESSION["city"] = $city;
         }
     }
 
     if (empty($_POST["zipcode"])) {
         $zipCodeErr = "zipcode is required";
-    } else {
+    } elseif($_POST["zipcode"]) {
         $zipCode = ($_POST["zipcode"]);
         if (!preg_match("/^[0-9*#+]+$/", $zipCode)) {
             $zipCodeErr = "Only numeric values allowed";
+        } else{
+            $_SESSION["zipCode"] = $zipCode;
         }
         if ($zipCodeErr == "" && $streetErr == "" && $cityErr == "" && $emailErr == "" && $streetNumberErr == "") {
             $success = '<div class="alert alert-primary" role="alert">Thank you for your Order</div>'; //created a variable here and called the variable with the script tag in html
@@ -147,5 +155,6 @@ $_SESSION["city"] = "$city";
 
 
 $totalValue = 0;
+whatIsHappening();
 
 require 'form-view.php';
