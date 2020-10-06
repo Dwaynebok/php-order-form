@@ -106,7 +106,7 @@ if (empty($_POST["zipcode"])) {
     if(!preg_match("/^[0-9*#+]+$/", $zipCode)) {
         $zipCodeErr = "Only numeric values allowed";
     }
-    if ($zipCode == "" && $street == "" && $city == "" && $email == "" && $streetNumber = "") {
+    if ($zipCodeErr == "" && $streetErr == "" && $cityErr == "" && $emailErr == "" && $streetNumberErr == "") {
         $success = '<div class="alert alert-success" role="alert">Thank you for your order</div>';
     }
 }
