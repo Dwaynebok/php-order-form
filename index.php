@@ -107,7 +107,7 @@ if (empty($_POST["zipcode"])) {
         $zipCodeErr = "Only numeric values allowed";
     }
     if ($zipCodeErr == "" && $streetErr == "" && $cityErr == "" && $emailErr == "" && $streetNumberErr == "") {
-        $success = 'Thank you for your order';
+        $success = 'Thank you for your order';  //created a variable here and called the variable with the script tag in html
     }
 }
 
