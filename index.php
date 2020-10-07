@@ -213,8 +213,10 @@ if (!isset($_COOKIE['totalValue'])) {
 }
 */
 
-/*
+
 //creating the mail
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $to = "dwaynebok19@gmail.com";
 $subject = "My subject";
 $txt = "Hello world!";
@@ -223,7 +225,7 @@ $headers = "From: dwynebok19@gmail.com" . "\r\n" .
 
 
 mail($to,$subject,$txt,$headers);
-*/
+
 
 // first make session for each checkbox and set the value of the checkbox
 // make the attribute check checked
