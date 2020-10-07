@@ -191,15 +191,17 @@ if (!isset($_COOKIE[$cookie_name])) {
 */
 
 
-$totalValue = 0;
-
+/*
 if (!isset($_SESSION['totalValue'])) {
-   $totalValue =  $_SESSION['totalValue'] = 1;
+   $totalValue =  $_SESSION['totalValue'] = 0;
 } else {
-    $_SESSION['totalValue']++;
+    $_SESSION['totalValue'];
 }
 
 $totalValue = $_SESSION['totalValue'];
+*/
+
+
 /*
 if (!isset($_COOKIE['totalValue'])) {
     setcookie("totalValue", '$totalValue', time() + 3600,);
@@ -211,6 +213,40 @@ if (!isset($_COOKIE['totalValue'])) {
 }
 */
 
+/*
+//creating the mail
+$to = "dwaynebok19@gmail.com";
+$subject = "My subject";
+$txt = "Hello world!";
+$headers = "From: dwynebok19@gmail.com" . "\r\n" .
+    "CC: somebodyelse@example.com";
+
+
+mail($to,$subject,$txt,$headers);
+*/
+
+// first make session for each checkbox and set the value of the checkbox
+// make the attribute check checked
+// get access to the price to be able to add them up
+// create an empty session and set value to the session,
+// create an if statement
+
+$totalValue = 0;
+if(isset($_GET['food']))
+{ if ($_GET['food']== '1'){
+    $products = $sandwich;
+    $_SESSION['products'] = $sandwich;
+} else {
+    $_SESSION['products'] = $drinks;
+    $products = $drinks;
+}
+$foodCount = count($sandwich);
+for ($i = 0;$i < $foodCount; $i++ ){
+    if (isset($_POST['products'][$i])){
+        $totalValue += $products[$i]['price'];
+    }
+}
+}
 
 whatIsHappening();
 
