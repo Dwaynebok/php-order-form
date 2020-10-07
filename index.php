@@ -231,6 +231,8 @@ mail($to,$subject,$txt,$headers);
 // create an empty session and set value to the session,
 // create an if statement
 
+
+//code for the drinks and food to add up
 $totalValue = 0;
 if(isset($_GET['food']))
 { if ($_GET['food']== '1'){
