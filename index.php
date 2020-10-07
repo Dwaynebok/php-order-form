@@ -169,13 +169,48 @@ $_SESSION["zipCode"] = "$zipCode";
 $_SESSION["street"] = "$street";
 $_SESSION["city"] = "$city";
 
+//making express delivery
 if (isset($_POST['express_delivery'])){
     $time = 'your food will arrive in 45minutes';
 } else{
     $time = ' your food will arrive in 2hours';
 }
+/*
+//Making the counter with cookie
+$cookie_name = "count";
+$cookie_value = "$cookie_name";
+setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
+
+if (!isset($_COOKIE[$cookie_name])) {
+      echo "Cookie named '" . $cookie_name . "' is not set!";
+} else{
+    echo "Cookie '" . $cookie_name . "' is set!<br>";
+    echo "Value is: " . $_COOKIE[$cookie_name];
+
+}
+*/
+
 
 $totalValue = 0;
+
+if (!isset($_SESSION['totalValue'])) {
+   $totalValue =  $_SESSION['totalValue'] = 1;
+} else {
+    $_SESSION['totalValue']++;
+}
+
+$totalValue = $_SESSION['totalValue'];
+
+if (!isset($_COOKIE['totalValue'])) {
+    setcookie("totalValue", '$totalValue', time() + 3600,);
+    $_COOKIE['totalValue'] = $totalValue;
+
+} else {
+    setcookie("totalValue", '$totalValue' + $_COOKIE['totalValue'], time() + 3600);
+    $_COOKIE['totalValue'] += $totalValue;
+}
+
+
 whatIsHappening();
 
 require 'form-view.php';
