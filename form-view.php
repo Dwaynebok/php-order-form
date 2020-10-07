@@ -29,7 +29,7 @@
         </ul>
     </nav>
 
-    <?php echo $success; ?>
+    <?php echo $success.$time;?>
 
     <form method="post">
         <div class="form-row">
@@ -63,8 +63,8 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="city">City:</label>
-                    <input type="text" id="city" name="city" class="form-control" value="<?php echo $city;?>">
-                    <span class="error"> <?php echo $cityErr;?></span>
+                    <input type="text" id="city" name="city" class="form-control" value="<?php echo $city;?>"
+                    <span class="error"> <?php echo $cityErr;?> </span>
                     <br><br>
                 </div>
                 <div class="form-group col-md-6">
@@ -101,5 +101,8 @@
         text-align: center;
     }
 </style>
+
+
+
 </body>
 </html>
