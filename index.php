@@ -200,7 +200,7 @@ if (!isset($_SESSION['totalValue'])) {
 }
 
 $totalValue = $_SESSION['totalValue'];
-
+/*
 if (!isset($_COOKIE['totalValue'])) {
     setcookie("totalValue", '$totalValue', time() + 3600,);
     $_COOKIE['totalValue'] = $totalValue;
@@ -209,6 +209,7 @@ if (!isset($_COOKIE['totalValue'])) {
     setcookie("totalValue", '$totalValue' + $_COOKIE['totalValue'], time() + 3600);
     $_COOKIE['totalValue'] += $totalValue;
 }
+*/
 
 
 whatIsHappening();
