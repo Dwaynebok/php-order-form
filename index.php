@@ -174,29 +174,6 @@ if (isset($_POST['express_delivery'])){
 }
 
 
-/*
-if (!isset($_SESSION['totalValue'])) {
-   $totalValue =  $_SESSION['totalValue'] = 0;
-} else {
-    $_SESSION['totalValue'];
-}
-
-$totalValue = $_SESSION['totalValue'];
-*/
-
-
-/*
-if (!isset($_COOKIE['totalValue'])) {
-    setcookie("totalValue", '$totalValue', time() + 3600,);
-    $_COOKIE['totalValue'] = $totalValue;
-
-} else {
-    setcookie("totalValue", '$totalValue' + $_COOKIE['totalValue'], time() + 3600);
-    $_COOKIE['totalValue'] += $totalValue;
-}
-*/
-
-
 //creating the mail
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
