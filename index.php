@@ -39,7 +39,7 @@ $zipCodeErr = "";
 $cityErr = "";
 $streetNumberErr = "";
 $success = "";
-
+$time = "";
 
 function whatIsHappening()
 {
@@ -73,12 +73,12 @@ $drinks = [
 
 $products = $drinks;
 
-$food = $_GET['food']; // set variable for food and used the get to fetch for the food data
+// set variable for food and used the get to fetch for the food data
 
 if(!isset($_GET['food'])){
     $products = $sandwich; // used the isset if the value has not been set
 }
-else if ($food == 1){
+else if ($_GET['food'] == 1){
     $products = $sandwich; //else if for if the food is equals to one
 } else {
     $products = $drinks;  // else change to drinks
@@ -145,6 +145,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["city"] = $city;
         }
     }
+//making express delivery
+    if (isset($_POST['express_delivery'])){
+        $time = 'your food will arrive in 45minutes';
+    } else{
+        $time = ' your food will arrive in 2hours';
+    }
+
 
     if (empty($_POST["zipcode"])) {
         $zipCodeErr = "zipcode is required";
@@ -156,8 +163,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["zipCode"] = $zipCode;
         }
         if ($zipCodeErr == "" && $streetErr == "" && $cityErr == "" && $emailErr == "" && $streetNumberErr == "") {
-            $success = '<div class="alert alert-primary" role="alert">Thank you for your Order </div>'; //created a variable here and called the variable with the script tag in html
+            $success = '<div class="alert alert-primary" role="alert">Thank you for your Order <br> '.$time.' </div>'; //created a variable here and called the variable with the script tag in html
         }
+
     }
 }
 
@@ -166,25 +174,19 @@ $_SESSION["zipCode"] = "$zipCode";
 $_SESSION["street"] = "$street";
 $_SESSION["city"] = "$city";
 
-//making express delivery
-if (isset($_POST['express_delivery'])){
-    $time = 'your food will arrive in 45minutes';
-} else{
-    $time = ' your food will arrive in 2hours';
-}
+
 
 
 //creating the mail
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$to = "dwaynebok19@gmail.com";
 $subject = "My subject";
 $txt = "Hello world!";
 $headers = "From: dwynebok19@gmail.com" . "\r\n" .
     "CC: somebodyelse@example.com";
 
 
-mail($to,$subject,$txt,$headers);
+mail($email,$subject,$txt,$headers); // use
 
 
 // first make session for each checkbox and set the value of the checkbox
@@ -212,6 +214,6 @@ for ($i = 0;$i < $foodCount; $i++ ){
 }
 }
 
-//whatIsHappening();
+whatIsHappening();
 
 require 'form-view.php';
