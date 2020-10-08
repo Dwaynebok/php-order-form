@@ -31,10 +31,10 @@ if (isset($_SESSION["streetNumber"])){
    $streetNumber =  $_SESSION["streetNumber"];
 }
 
-var_dump($_SESSION["city"]);
-var_dump($_SESSION["streetNumber"]);
-var_dump(($_SESSION["street"]));
-var_dump($_SESSION["zipCode"]);
+//var_dump($_SESSION["city"]);
+//var_dump($_SESSION["streetNumber"]);
+//var_dump(($_SESSION["street"]));
+//var_dump($_SESSION["zipCode"]);
 
 
 $emailErr = "";
@@ -88,7 +88,7 @@ else if ($food == 1){
 }
 
 
-var_dump($products);
+//var_dump($products);
 
 /*
 $email = ($_POST["email"]);
@@ -238,6 +238,6 @@ for ($i = 0;$i < $foodCount; $i++ ){
 }
 }
 
-whatIsHappening();
+//whatIsHappening();
 
 require 'form-view.php';
