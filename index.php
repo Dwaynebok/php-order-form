@@ -8,13 +8,14 @@ error_reporting(E_ALL);
 //we are going to use session variables so we need to enable sessions
 session_start();
 
+// these empty variables are created to be used for the session so that the users info can be stored..
 $zipCode = "";
 $city = "";
 $street = "";
 $streetNumber = "";
 $email = "";
 
-
+// here below is the code for session
 if (isset($_SESSION["zipCode"])){
    $zipCode =  $_SESSION["zipCode"];
 }
@@ -31,7 +32,7 @@ if (isset($_SESSION["streetNumber"])){
    $streetNumber =  $_SESSION["streetNumber"];
 }
 
-
+// created an empty variable for the error messages
 $emailErr = "";
 $streetErr = "";
 $zipCodeErr = "";
@@ -53,6 +54,7 @@ function whatIsHappening()
 }
 
 //your products with their price.
+// changed the names of the variables from products to q more recognizable ones
 $sandwich = [
     ['name' => 'Club Ham', 'price' => 3.20],
     ['name' => 'Club Cheese', 'price' => 3],
