@@ -31,11 +31,6 @@ if (isset($_SESSION["streetNumber"])){
    $streetNumber =  $_SESSION["streetNumber"];
 }
 
-//var_dump($_SESSION["city"]);
-//var_dump($_SESSION["streetNumber"]);
-//var_dump(($_SESSION["street"]));
-//var_dump($_SESSION["zipCode"]);
-
 
 $emailErr = "";
 $streetErr = "";
