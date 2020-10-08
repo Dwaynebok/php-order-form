@@ -87,26 +87,8 @@ else if ($_GET['food'] == 1){
 
 //var_dump($products);
 
-/*
-$email = ($_POST["email"]);
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $emailErr = "Invalid email format";
-} else {
-    echo "Email address '$email' is considered invalid.";
-}
-*/
 
 //created a validation for the email using the code below
-/*
-$email = ($_POST["email"]);
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo "Email address '$email' is considered valid.";
-
-} else {
-    echo "Email address '$email' is considered invalid.";
-}
-*/
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = ($_POST["email"]);
@@ -214,6 +196,6 @@ for ($i = 0;$i < $foodCount; $i++ ){
 }
 }
 
-whatIsHappening();
+//whatIsHappening();
 
 require 'form-view.php';
